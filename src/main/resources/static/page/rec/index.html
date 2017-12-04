@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>页面流量</title>
+    <link rel="stylesheet" type="text/css" href="../../js/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../../js/bootstrap/css/bootstrap-theme.css">
+    <script type="text/javascript" src="../../js/jquery/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="../../js/bootstrap/js/bootstrap.js"></script>
+    <style type="text/css">
+        .highlight {
+            background-color: #ff7b0a;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="row" style="margin-top: 20px;">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="form-group col-md-3">
+                    <input type="text" class="form-control" id="memberId" placeholder="请输入memberid" value="5009055">
+                </div>
+                <div class="form-group col-md-2">
+                    <input type="text" class="form-control" id="start" placeholder="开始时间" value="2017-12-01">
+                </div>
+                <div class="form-group col-md-2">
+                    <input type="text" class="form-control" id="end" placeholder="结束时间" value="now">
+                </div>
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-default" id="queryBtn">查询</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="panel panel-primary row">
+        <div class="panel-heading">
+            <h3 class="panel-title">提示信息</h3>
+        </div>
+        <div class="panel-body" id="info">
+            <table class="table table-hover">
+                <caption>数据</caption>
+                <thead>
+                <tr>
+                    <th>id</th>
+                    <th>url</th>
+                    <th>name</th>
+                </tr>
+                </thead>
+                <tbody id="data">
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
