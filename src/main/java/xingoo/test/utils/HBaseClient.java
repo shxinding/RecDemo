@@ -62,13 +62,14 @@ public class HBaseClient {
     }
 
     public static List<String> scan(String table, String key, String field,String start,String end) {
+        logger.info(key+start+" --- "+key+end);
         List<String> list = new ArrayList<>();
         try(Table tab = getTable(table)){
             Scan scan = new Scan();
             scan.setMaxVersions(1);
             scan.setBatch(100);
-            scan.setStartRow(Bytes.toBytes(key+"0000000000000"));
-            scan.setStopRow(Bytes.toBytes( key+"9999999999999"));
+            scan.setStartRow(Bytes.toBytes(key+start));
+            scan.setStopRow(Bytes.toBytes( key+end));
             ResultScanner rs = tab.getScanner(scan);
             for(Result r : rs){
                 Cell cell = r.getColumnLatestCell(COLUMN_FAMILY, Bytes.toBytes(field));
