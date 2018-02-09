@@ -30,6 +30,18 @@
             <artifactId>hbase-client</artifactId>
             <version>1.3.1</version>
         </dependency>
+        <!-- Spring-Mybatis -->
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>1.3.0</version>
+        </dependency>
+
+        <!-- MySQL -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
@@ -46,4 +58,17 @@
         </plugins>
     </build>
 
+    <properties>
+        <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+
+        <spring-boot-starter-mybatis.version>1.1.1</spring-boot-starter-mybatis.version>
+        <zookeeper.version>3.4.8</zookeeper.version>
+        <zkclient.version>0.1</zkclient.version>
+
+
+        <tiangou-zipkin-brave.version>1.1-SNAPSHOT</tiangou-zipkin-brave.version>
+    </properties>
 </project>

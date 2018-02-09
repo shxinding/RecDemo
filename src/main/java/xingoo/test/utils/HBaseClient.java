@@ -61,15 +61,15 @@ public class HBaseClient {
         return column;
     }
 
-    public static List<String> scan(String table, String key, String field,String start,String end) {
-        logger.info(key+start+" --- "+key+end);
+    public static List<String> scan(String table, String field,String start,String end) {
+        logger.debug(start+" --- "+end);
         List<String> list = new ArrayList<>();
         try(Table tab = getTable(table)){
             Scan scan = new Scan();
             scan.setMaxVersions(1);
             scan.setBatch(100);
-            scan.setStartRow(Bytes.toBytes(key+start));
-            scan.setStopRow(Bytes.toBytes( key+end));
+            scan.setStartRow(Bytes.toBytes(start));
+            scan.setStopRow(Bytes.toBytes( end));
             ResultScanner rs = tab.getScanner(scan);
             for(Result r : rs){
                 Cell cell = r.getColumnLatestCell(COLUMN_FAMILY, Bytes.toBytes(field));
@@ -78,7 +78,6 @@ public class HBaseClient {
         }catch (Exception e){
             logger.error(e.getMessage());
         }
-        return list;
-//        return list.stream().distinct().collect(Collectors.toList());
+        return list.stream().distinct().collect(Collectors.toList());
     }
 }

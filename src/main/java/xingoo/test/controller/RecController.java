@@ -20,6 +20,6 @@ public class RecController {
         LocalDateTime end_date   = LocalDateTime.parse(end,   DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
         Long end_row = MAX_TIMESTAMP - Timestamp.valueOf(start_date).getTime();
         Long start_row   = MAX_TIMESTAMP - Timestamp.valueOf(end_date).getTime();
-        return HBaseClient.scan("rec:userview", memberId, "item_id",start_row+"",end_row+"");
+        return HBaseClient.scan("rec:userview", "item_id",memberId+start_row,memberId+end_row);
     }
 }

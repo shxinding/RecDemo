@@ -11,4 +11,5 @@ import org.springframework.context.annotation.Configuration;
 @EnableAutoConfiguration
 @ComponentScan("xingoo.test")
 public class AppConfig {
+
 }

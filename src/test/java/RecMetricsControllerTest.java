@@ -15,7 +15,7 @@ import xingoo.test.Application;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = Application.class)
 @WebAppConfiguration
-public class RecControllerTest {
+public class RecMetricsControllerTest {
 
     @Autowired
     private WebApplicationContext context;
@@ -29,10 +29,8 @@ public class RecControllerTest {
     @Test
     public void queryTest1() throws Exception {
         mvc.perform(MockMvcRequestBuilders
-                .get("/page/rec")
-                .param("memberId","5009055")
-                .param("start","2017-12-07 00:00:00")
-                .param("end","2017-12-08 00:00:00")
+                .get("/metrics/count")
+                .param("event","click")
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .accept(MediaType.APPLICATION_JSON))
                 .andDo(mvcResult -> {
